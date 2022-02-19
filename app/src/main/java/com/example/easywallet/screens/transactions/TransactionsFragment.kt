@@ -17,7 +17,7 @@ class TransactionsFragment : Fragment() {
 
     private val viewModel: TransactionsViewModel by lazy {
         val activity = requireNotNull(this.activity)
-        ViewModelProvider(this, TransactionsViewModelFactory(activity.application))
+        ViewModelProvider(this, TransactionsViewModelFactory(args.wallet, activity.application))
             .get(TransactionsViewModel::class.java)
     }
 

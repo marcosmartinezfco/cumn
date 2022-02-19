@@ -18,13 +18,12 @@ class MainFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        // Inflate the layout for this fragment
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false)
         binding.mainButton.setOnClickListener{
             val wallet = binding.textInputCartera.text?.toString()
             val privada = binding.textInputPrivada.text?.toString()
             if (this.isPrivateKeyValid(wallet, privada)){
-                val action = MainFragmentDirections.actionMainFragmentToTransactionsFragment(wallet)
+                val action = MainFragmentDirections.actionMainFragmentToTransactionsFragment(wallet!!)
                 Navigation.findNavController(binding.root).navigate(action)
             }
         }
@@ -32,6 +31,6 @@ class MainFragment : Fragment() {
     }
 
     private fun isPrivateKeyValid(wallet: String?, private: String?): Boolean {
-        return true
+        return wallet != null
     }
 }

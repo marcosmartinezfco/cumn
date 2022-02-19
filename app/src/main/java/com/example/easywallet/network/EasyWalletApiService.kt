@@ -10,8 +10,11 @@ import retrofit2.Retrofit
 import retrofit2.converter.moshi.MoshiConverterFactory
 import retrofit2.http.GET
 import retrofit2.http.Path
+import retrofit2.http.Query
 
-private const val BASE_API = "https://api.etherscan.io/api"
+
+private const val BASE_API = "https://api.etherscan.io/"
+private const val API_KEY = "QF6QRKS31TYE54YAABA4S37VJ2V8PWQY8V"
 private val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
 private val logger = HttpLoggingInterceptor().apply { level = HttpLoggingInterceptor.Level.BODY }
 private val client = OkHttpClient.Builder().addInterceptor(logger).build()
@@ -23,8 +26,8 @@ private val retrofit = Retrofit.Builder()
     .build()
 
 interface EasyWalletApiService {
-    @GET("?module=account&action=balance&address={address}bae&tag=latest&apikey=YourApiKeyToken")
-    fun getBalance(@Path("address")accountAddress: String): Deferred<ApiBalance>
+    @GET("api?module=account&action=balance&address={address}&tag=latest&apikey=$API_KEY")
+    fun getBalance(@Query("address")accountAddress: String): Deferred<ApiBalance>
 }
 
 object EasyWalletApi {
