@@ -32,6 +32,9 @@ class TransactionsFragment : Fragment() {
         binding.lifecycleOwner = viewLifecycleOwner
         val adapter = TransactionAdapter()
         binding.transactionsList.adapter = adapter
+        viewModel.transactions.observe(viewLifecycleOwner) {
+            adapter.submitList(it)
+        }
         return binding.root
     }
 }

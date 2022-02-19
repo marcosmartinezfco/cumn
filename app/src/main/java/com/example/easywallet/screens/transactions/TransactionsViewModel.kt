@@ -16,7 +16,12 @@ class TransactionsViewModel(address: String, application: Application) : Android
         Log.i("Debug", it)
         it
     }
+    val transactions = repository.transactions
+
     init {
-        viewModelScope.launch { repository.fetchAccountBalance(address) }
+        viewModelScope.launch {
+            repository.fetchAccountBalance(address)
+            repository.fetchTransactions(address)
+        }
     }
 }
