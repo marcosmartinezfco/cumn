@@ -21,16 +21,11 @@ class MainFragment : Fragment() {
         binding = DataBindingUtil.inflate(inflater, R.layout.fragment_main, container, false)
         binding.mainButton.setOnClickListener{
             val wallet = binding.textInputCartera.text?.toString()
-            val privada = binding.textInputPrivada.text?.toString()
-            if (this.isPrivateKeyValid(wallet, privada)){
-                val action = MainFragmentDirections.actionMainFragmentToTransactionsFragment(wallet!!)
+            if (wallet != null){
+                val action = MainFragmentDirections.actionMainFragmentToTransactionsFragment(wallet)
                 Navigation.findNavController(binding.root).navigate(action)
             }
         }
         return binding.root
-    }
-
-    private fun isPrivateKeyValid(wallet: String?, private: String?): Boolean {
-        return wallet != null
     }
 }

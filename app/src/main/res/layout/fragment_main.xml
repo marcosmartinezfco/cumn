@@ -13,7 +13,7 @@
         android:id="@+id/textFieldCartera"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="Cartera"
+        android:hint="Wallet id"
 
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -26,32 +26,14 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textFieldPrivada"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Privada"
-
-        app:layout_constraintBottom_toTopOf="@+id/main_button"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textFieldCartera">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/text_input_privada"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.button.MaterialButton
+        <com.google.android.material.button.MaterialButton
         android:id="@+id/main_button"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        android:text="A la batalla">
+        android:text="Get Balance">
 
 
     </com.google.android.material.button.MaterialButton>

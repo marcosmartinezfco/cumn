@@ -3,13 +3,6 @@ package com.example.easywallet.network
 import com.example.easywallet.domain.Transaction
 import com.squareup.moshi.Json
 
-/*
-{
-  "status":"1",
-  "message":"OK",
-  "result":"40891626854930000000000"
-}
-*/
 data class ApiTransaction(
     @Json(name = "hash")
     var tx_hash: String,

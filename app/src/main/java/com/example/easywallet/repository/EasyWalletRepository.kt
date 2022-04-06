@@ -16,11 +16,9 @@ class EasyWalletRepository {
     val transactions: MutableLiveData<List<Transaction>> = MutableLiveData(emptyList())
 
     suspend fun fetchAccountBalance(account: String){
-        Log.i("Debug1", account)
         withContext(Dispatchers.IO){
             try{
                 val balance_result = EasyWalletApi.retroFitService.getBalance(account).await()
-                Log.i("Debug2", balance_result.status)
                 balance.postValue(balance_result.result)
             }catch(e: Exception){
                 Log.e("Error", e.toString())
@@ -29,11 +27,9 @@ class EasyWalletRepository {
     }
 
     suspend fun fetchTransactions(account: String){
-        Log.i("Debug1 Transaction", account)
         withContext(Dispatchers.IO){
             try{
                 val balance_result = EasyWalletApi.retroFitService.getTransactions(account).await()
-                Log.i("Debug2", balance_result.status)
                 transactions.postValue(balance_result.asDomainModel().toList())
             }catch(e: Exception){
                 Log.e("Error", e.toString())

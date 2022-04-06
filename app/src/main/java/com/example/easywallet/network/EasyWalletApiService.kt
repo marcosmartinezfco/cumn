@@ -29,7 +29,7 @@ interface EasyWalletApiService {
     @GET("api?module=account&action=balance&tag=latest&apikey=$API_KEY")
     fun getBalance(@Query("address")accountAddress: String): Deferred<ApiBalance>
 
-    @GET("api?module=account&action=txlist&startblock=0&endblock=99999999&page=1&offset=10&sort=asc&apikey=$API_KEY")
+    @GET("api?module=account&action=txlist&startblock=0&endblock=99999999&page=1&offset=20&sort=desc&apikey=$API_KEY")
     fun getTransactions(@Query("address")accountAddress: String): Deferred<ApiTransactionsContainer>
 }
 

@@ -13,7 +13,6 @@ import kotlinx.coroutines.launch
 class TransactionsViewModel(address: String, application: Application) : AndroidViewModel(application) {
     private val repository = EasyWalletRepository()
     val balance =  Transformations.map(repository.balance){
-        Log.i("Debug", it)
         it
     }
     val transactions = repository.transactions
