@@ -12,7 +12,6 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-
 private const val BASE_API = "https://api.etherscan.io/"
 private const val API_KEY = "QF6QRKS31TYE54YAABA4S37VJ2V8PWQY8V"
 private val moshi = Moshi.Builder().add(KotlinJsonAdapterFactory()).build()
